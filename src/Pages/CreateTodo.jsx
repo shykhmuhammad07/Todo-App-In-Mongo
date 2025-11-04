@@ -11,7 +11,7 @@ function CreateTodo() {
     async function fetchTodo() {
       try {
         setIsLoading(true);
-        const res = await fetch("http://localhost:3000/");
+        const res = await fetch("https://todo-backend-rho-gray.vercel.app/");
         const data = await res.json();
         setData(data);
       } catch (error) {
@@ -36,7 +36,7 @@ function CreateTodo() {
 
     try {
       setIsLoading(true);
-      const res = await fetch("http://localhost:3000/add", {
+      const res = await fetch("https://todo-backend-rho-gray.vercel.app/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: todo }),
@@ -58,7 +58,7 @@ function CreateTodo() {
   async function Delete(id) {
     try {
       setIsLoading(true);
-      await fetch(`http://localhost:3000/${id}`, { method: "DELETE" });
+      await fetch(`https://todo-backend-rho-gray.vercel.app/${id}`, { method: "DELETE" });
       setData(Data.filter((e) => e._id !== id));
       showNotification("Todo deleted!", "success");
     } catch (error) {
@@ -79,7 +79,7 @@ function CreateTodo() {
   async function updateTodo() {
     try {
       setIsLoading(true);
-      const res = await fetch(`http://localhost:3000/${editId}`, {
+      const res = await fetch(`https://todo-backend-rho-gray.vercel.app/${editId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: todo }),
